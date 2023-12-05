@@ -42,19 +42,15 @@ for($count = count($history); $count > 1; $count --){
     if($result_code!== 0) continue;
     $oldContents = include("tmp1.php");
     exec("rm tmp1.php");
-    exec("git checkout master");
+    exec("git checkout main");
     exec("git checkout $newVersion; cp $currentDir/1.php tmp2.php",$command_output,$result_code);
     if($result_code!== 0) continue;
     $newContents = include("tmp2.php");
     exec("rm tmp2.php");
-    exec("git checkout master");
+    exec("git checkout main");
     foreach($allWinOdds as $raceNumber => $runners){
         if(!isset($oldContents[$raceNumber]['Win Odds']) 
         || !isset($newContents[$raceNumber]['Win Odds'])) continue;
-        var_dump($oldContents[$raceNumber]['Win Odds']);
-        var_dump($newContents[$raceNumber]['Win Odds']);
-        var_dump($oldContents[$raceNumber]['Pla Odds']);
-        var_dump($newContents[$raceNumber]['Pla Odds']);
         $oldWinOdds = explode(", ", $oldContents[$raceNumber]['Win Odds']);
         $newWinOdds = explode(", ", $newContents[$raceNumber]['Win Odds']);
         $oldPlaOdds = explode(", ", $oldContents[$raceNumber]['Pla Odds']);
