@@ -12,10 +12,13 @@ if(file_exists($plaOddsFile)){
     $allPlaOdds = include($plaOddsFile);
 }
 $winPositionDifferences = [];
+$plaPositionDifferences = [];
 foreach($allWinOdds as $raceNumber => $runners){
     $winPositionDifferences[$raceNumber] = [];
+    $plaPositionDifferences[$raceNumber] = [];
     foreach($runners as $runner => $omg){
         $winPositionDifferences[$raceNumber][$runner] = 0;
+        $plaPositionDifferences[$raceNumber][$runner] = 0;
     }
 }
 $outFile = $currentDir . DIRECTORY_SEPARATOR . "$step.php";
@@ -29,8 +32,8 @@ foreach($output as $line){
         $history[]   = substr($line, strlen('commit'));
     }
 }
-//limit search to last 50 commits
-$history = array_slice($history, 0, 100);
+//limit search to last 20 commits
+$history = array_slice($history, 0, 20);
 exec("git config --global advice.detachedHead false");
 for($count = count($history); $count > 1; $count --){
     $oldVersion = $history[$count - 1];
@@ -48,13 +51,23 @@ for($count = count($history); $count > 1; $count --){
     foreach($allWinOdds as $raceNumber => $runners){
         if(!isset($oldContents[$raceNumber]['Win Odds']) 
         || !isset($newContents[$raceNumber]['Win Odds'])) continue;
-        $oldOdds = explode(", ", $oldContents[$raceNumber]['Win Odds']);
-        $newOdds = explode(", ", $newContents[$raceNumber]['Win Odds']);
+        var_dump($oldContents[$raceNumber]['Win Odds']);
+        var_dump($newContents[$raceNumber]['Win Odds']);
+        var_dump($oldContents[$raceNumber]['Pla Odds']);
+        var_dump($newContents[$raceNumber]['Pla Odds']);
+        $oldWinOdds = explode(", ", $oldContents[$raceNumber]['Win Odds']);
+        $newWinOdds = explode(", ", $newContents[$raceNumber]['Win Odds']);
+        $oldPlaOdds = explode(", ", $oldContents[$raceNumber]['Pla Odds']);
+        $newPlaOdds = explode(", ", $newContents[$raceNumber]['Pla Odds']);
         foreach($runners as $runner => $whatever){
-            $oldRunnerPosition = array_search($runner, $oldOdds);
-            $newRunnerPosition = array_search($runner, $newOdds);
+            $oldRunnerPosition = array_search($runner, $oldWinOdds);
+            $oldPlacePosition = array_search($runner, $oldPlaOdds);
+            $newRunnerPosition = array_search($runner, $newWinOdds);
+            $newPlacePosition = array_search($runner, $newPlaOdds);
             $winOddsPositionDiff = $newRunnerPosition - $oldRunnerPosition;
+            $plaOddsPositionDiff = $newPlacePosition - $oldPlacePosition;
             $winPositionDifferences[$raceNumber][$runner] += $winOddsPositionDiff;
+            $plaPositionDifferences[$raceNumber][$runner] += $plaOddsPositionDiff;
         }
     }
 }
@@ -73,8 +86,11 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     $runnersPositions = $winPositionDifferences[$raceNumber];
     asort($runnersPositions);
     $runners = array_keys($runnersPositions);
-
-    $racetext .= "\t\t'Runners by odds mvnt'  =>  '" . implode(", ", $runners).  "',\n";
+    $racetext .= "\t\t'win odds mvnt'  =>  '" . implode(", ", $runners).  "',\n";
+    $placePositions = $plaPositionDifferences[$raceNumber];
+    asort($placePositions);
+    $placers = array_keys($placePositions);
+    $racetext .= "\t\t'pla odds mvnt'  =>  '" . implode(", ", $placers).  "',\n";
     $racetext .= "\t],\n";
     $outtext .= $racetext;
 }
