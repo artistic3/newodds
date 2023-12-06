@@ -56,8 +56,8 @@ return [
 		/**
 		Race 5
 		*/
-		'Win Odds'  =>  '4, 11, 7, 5, 12, 3, 2, 10, 8, 6, 1, 9',
-		'Pla Odds'  =>  '11, 4, 5, 7, 3, 2, 12, 10, 8, 6, 1, 9',
+		'Win Odds'  =>  '4, 11, 7, 5, 3, 12, 2, 10, 6, 8, 1, 9',
+		'Pla Odds'  =>  '4, 11, 5, 7, 3, 2, 12, 10, 6, 8, 1, 9',
 		'Total Runners '  =>  12,
 		/** Based on win odds */
 		/** Black selection */
