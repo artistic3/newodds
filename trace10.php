@@ -2,7 +2,7 @@
 
 if(!isset($argv[1])) die("Race Date Not Entered!!\n");
 
-$step = "history";
+$step = "history10";
 $raceDate = trim($argv[1]);
 $currentDir = __DIR__ . DIRECTORY_SEPARATOR . $raceDate;
 
@@ -32,8 +32,8 @@ foreach($output as $line){
         $history[]   = substr($line, strlen('commit'));
     }
 }
-//limit search to last 40 commits
-$history = array_slice($history, 0, 40);
+//limit search to last 10 commits
+$history = array_slice($history, 0, 10);
 exec("git config --global advice.detachedHead false");
 for($count = count($history); $count > 1; $count --){
     $oldVersion = $history[$count - 1];
