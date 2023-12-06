@@ -32,7 +32,7 @@ return [
 		Race 3
 		*/
 		'Win Odds'  =>  '10, 2, 7, 8, 11, 6, 5, 12, 1, 9, 4, 3',
-		'Pla Odds'  =>  '10, 8, 12, 2, 7, 11, 9, 1, 5, 6, 4, 3',
+		'Pla Odds'  =>  '10, 8, 2, 12, 7, 11, 9, 1, 5, 6, 4, 3',
 		'Total Runners '  =>  12,
 		/** Based on win odds */
 		/** Based on pla odds */
