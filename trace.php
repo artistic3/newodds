@@ -32,8 +32,8 @@ foreach($output as $line){
         $history[]   = substr($line, strlen('commit'));
     }
 }
-//limit search to last 100 commits
-$history = array_slice($history, 0, 100);
+//limit search to last 500 commits
+$history = array_slice($history, 0, 500);
 exec("git config --global advice.detachedHead false");
 for($count = count($history); $count > 1; $count --){
     $oldVersion = $history[$count - 1];
