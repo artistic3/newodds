@@ -74,7 +74,7 @@ return [
 		Race 6
 		*/
 		'Win Odds'  =>  '8, 4, 9, 5, 3, 12, 7, 11, 6, 1, 2, 10',
-		'Pla Odds'  =>  '4, 5, 8, 9, 3, 12, 11, 7, 2, 6, 10, 1',
+		'Pla Odds'  =>  '4, 5, 8, 3, 9, 12, 11, 7, 2, 6, 10, 1',
 		'Total Runners '  =>  12,
 		/** Based on win odds */
 		'win odds candidate(k = 7)' => '12',
