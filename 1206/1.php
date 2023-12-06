@@ -5,7 +5,7 @@ return [
 		/**
 		Race 1
 		*/
-		'Win Odds'  =>  '4, 3, 7, 12, 5, 8, 6, 2, 1, 10, 9, 11',
+		'Win Odds'  =>  '4, 3, 7, 12, 5, 8, 6, 1, 2, 10, 9, 11',
 		'Pla Odds'  =>  '4, 3, 12, 7, 5, 8, 10, 6, 2, 1, 9, 11',
 		'Total Runners '  =>  12,
 		/** Based on win odds */
@@ -16,8 +16,8 @@ return [
 		/**
 		Race 2
 		*/
-		'Win Odds'  =>  '3, 6, 8, 7, 1, 10, 9, 12, 4, 5, 2, 11',
-		'Pla Odds'  =>  '3, 10, 8, 6, 1, 7, 9, 12, 2, 5, 4, 11',
+		'Win Odds'  =>  '3, 8, 7, 6, 1, 10, 9, 12, 4, 5, 2, 11',
+		'Pla Odds'  =>  '3, 8, 10, 6, 7, 1, 9, 12, 2, 5, 4, 11',
 		'Total Runners '  =>  12,
 		/** Based on win odds */
 		/** Black selection */
@@ -25,7 +25,7 @@ return [
 		'SURE PLACE' => '8',
 		/** Based on pla odds */
 		'history p' => '8, 6',
-		'SURE PLACE' => '8, 6',
+		'SURE PLACE' => '8',
 	],
 	'3' => [
 		/**
@@ -43,7 +43,7 @@ return [
 		/**
 		Race 4
 		*/
-		'Win Odds'  =>  '4, 12, 6, 5, 9, 10, 2, 11, 1, 3, 7, 8',
+		'Win Odds'  =>  '4, 12, 6, 5, 9, 10, 11, 2, 1, 3, 7, 8',
 		'Pla Odds'  =>  '4, 5, 12, 6, 9, 10, 11, 2, 1, 3, 8, 7',
 		'Total Runners '  =>  12,
 		/** Based on win odds */
@@ -70,7 +70,7 @@ return [
 		Race 6
 		*/
 		'Win Odds'  =>  '4, 5, 3, 12, 9, 8, 7, 11, 6, 1, 2, 10',
-		'Pla Odds'  =>  '3, 5, 9, 12, 4, 11, 8, 7, 2, 6, 1, 10',
+		'Pla Odds'  =>  '3, 5, 4, 9, 12, 11, 8, 7, 2, 6, 1, 10',
 		'Total Runners '  =>  12,
 		/** Based on win odds */
 		'win odds candidate(k = 7)' => '8',
@@ -85,7 +85,7 @@ return [
 		Race 7
 		*/
 		'Win Odds'  =>  '4, 2, 3, 5, 10, 11, 8, 6, 9, 1, 7, 12',
-		'Pla Odds'  =>  '4, 5, 3, 2, 8, 10, 11, 9, 6, 7, 1, 12',
+		'Pla Odds'  =>  '4, 5, 3, 2, 8, 10, 11, 9, 7, 6, 1, 12',
 		'Total Runners '  =>  12,
 		/** Based on win odds */
 		'win odds candidate(k = 12)' => '4',
@@ -115,8 +115,8 @@ return [
 		/**
 		Race 9
 		*/
-		'Win Odds'  =>  '6, 7, 5, 4, 1, 2, 10, 11, 3, 8, 9, 12',
-		'Pla Odds'  =>  '6, 7, 11, 1, 5, 4, 2, 10, 3, 8, 9, 12',
+		'Win Odds'  =>  '6, 7, 4, 5, 1, 2, 10, 11, 3, 8, 9, 12',
+		'Pla Odds'  =>  '6, 7, 11, 1, 4, 5, 2, 10, 3, 8, 9, 12',
 		'Total Runners '  =>  12,
 		/** Based on win odds */
 		'win odds candidate(k = 12)' => '6',
