@@ -16,15 +16,14 @@ return [
 		/**
 		Race 2
 		*/
-		'Win Odds'  =>  '3, 7, 6, 8, 1, 10, 9, 12, 2, 4, 5, 11',
-		'Pla Odds'  =>  '3, 8, 10, 1, 7, 6, 9, 12, 2, 5, 4, 11',
+		'Win Odds'  =>  '3, 7, 1, 6, 8, 10, 9, 12, 2, 4, 5, 11',
+		'Pla Odds'  =>  '3, 1, 10, 8, 7, 6, 9, 12, 2, 5, 4, 11',
 		'Total Runners '  =>  12,
 		/** Based on win odds */
 		/** Black selection */
 		'history w' => '8',
 		/** Based on pla odds */
 		'history p' => '8, 6',
-		'SURE PLACE' => '6',
 	],
 	'3' => [
 		/**
@@ -42,7 +41,7 @@ return [
 		/**
 		Race 4
 		*/
-		'Win Odds'  =>  '4, 12, 6, 5, 9, 10, 11, 2, 1, 3, 7, 8',
+		'Win Odds'  =>  '4, 12, 6, 5, 9, 10, 2, 11, 1, 3, 7, 8',
 		'Pla Odds'  =>  '4, 5, 12, 6, 10, 9, 11, 2, 1, 3, 7, 8',
 		'Total Runners '  =>  12,
 		/** Based on win odds */
@@ -53,7 +52,7 @@ return [
 		Race 5
 		*/
 		'Win Odds'  =>  '4, 11, 7, 5, 3, 2, 12, 8, 10, 6, 1, 9',
-		'Pla Odds'  =>  '4, 11, 7, 5, 2, 3, 1, 10, 12, 8, 6, 9',
+		'Pla Odds'  =>  '4, 11, 7, 5, 2, 3, 1, 10, 12, 8, 9, 6',
 		'Total Runners '  =>  12,
 		/** Based on win odds */
 		'win odds candidate(k = 8)' => '3',
@@ -85,7 +84,7 @@ return [
 		Race 7
 		*/
 		'Win Odds'  =>  '4, 2, 3, 5, 10, 1, 8, 11, 9, 6, 7, 12',
-		'Pla Odds'  =>  '4, 1, 3, 8, 10, 2, 5, 9, 11, 6, 7, 12',
+		'Pla Odds'  =>  '4, 1, 3, 8, 10, 11, 2, 5, 9, 6, 7, 12',
 		'Total Runners '  =>  12,
 		/** Based on win odds */
 		'win odds candidate(k = 12)' => '4',
@@ -95,7 +94,8 @@ return [
 		'SURE PLACE' => '4',
 		/** Based on pla odds */
 		'pla odds candidate(k = 12)' => '4',
-		'history p' => '4, 2, 11',
+		'pla odds candidate(k = 9)' => '8',
+		'history p' => '4, 8, 11, 2',
 		'SURE PLACE' => '4, 2',
 	],
 	'8' => [
@@ -103,14 +103,13 @@ return [
 		Race 8
 		*/
 		'Win Odds'  =>  '9, 11, 10, 5, 3, 1, 2, 12, 8, 7, 6, 4',
-		'Pla Odds'  =>  '9, 10, 11, 3, 5, 12, 1, 8, 2, 7, 6, 4',
+		'Pla Odds'  =>  '9, 11, 3, 10, 5, 12, 1, 2, 8, 7, 6, 4',
 		'Total Runners '  =>  12,
 		/** Based on win odds */
 		/** Black selection */
 		'history w' => '11',
 		'SURE PLACE' => '11',
 		/** Based on pla odds */
-		'pla odds candidate(k = 8)' => '5',
 		'history p' => '11',
 		'SURE PLACE' => '11',
 	],
