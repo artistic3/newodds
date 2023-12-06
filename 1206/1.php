@@ -46,8 +46,8 @@ return [
 		/**
 		Race 4
 		*/
-		'Win Odds'  =>  '4, 12, 5, 9, 2, 6, 10, 1, 11, 3, 7, 8',
-		'Pla Odds'  =>  '4, 2, 5, 6, 12, 9, 10, 1, 11, 3, 7, 8',
+		'Win Odds'  =>  '4, 12, 2, 9, 6, 5, 11, 1, 10, 3, 7, 8',
+		'Pla Odds'  =>  '4, 2, 11, 5, 6, 9, 12, 1, 10, 3, 7, 8',
 		'Total Runners '  =>  12,
 		/** Based on win odds */
 		/** Based on pla odds */
