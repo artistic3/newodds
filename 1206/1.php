@@ -31,23 +31,23 @@ return [
 		/**
 		Race 3
 		*/
-		'Win Odds'  =>  '10, 2, 8, 7, 11, 6, 1, 9, 5, 12, 4, 3',
-		'Pla Odds'  =>  '8, 7, 2, 10, 11, 12, 9, 6, 1, 4, 5, 3',
+		'Win Odds'  =>  '8, 10, 2, 7, 11, 6, 9, 1, 5, 4, 12, 3',
+		'Pla Odds'  =>  '8, 2, 7, 10, 11, 9, 6, 12, 1, 5, 4, 3',
 		'Total Runners '  =>  12,
 		/** Based on win odds */
 		/** Black selection */
 		'history w' => '8',
 		'SURE PLACE' => '8',
 		/** Based on pla odds */
-		'history p' => '10, 2',
-		'SURE PLACE' => '10, 2',
+		'history p' => '2, 10',
+		'SURE PLACE' => '2, 10',
 	],
 	'4' => [
 		/**
 		Race 4
 		*/
 		'Win Odds'  =>  '4, 12, 6, 5, 9, 10, 2, 11, 1, 3, 7, 8',
-		'Pla Odds'  =>  '4, 5, 12, 6, 9, 10, 2, 11, 1, 3, 8, 7',
+		'Pla Odds'  =>  '4, 5, 12, 6, 9, 10, 2, 11, 1, 3, 7, 8',
 		'Total Runners '  =>  12,
 		/** Based on win odds */
 		/** Based on pla odds */
