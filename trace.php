@@ -60,15 +60,13 @@ for($count = count($history); $count > 1; $count --){
         $oldWinOdds = explode(", ", $oldContents[$raceNumber]['Win Odds']);
         $newWinOdds = explode(", ", $newContents[$raceNumber]['Win Odds']);
         $currentWinOdds = explode(", ", $currentContents[$raceNumber]['Win Odds']);
-        var_dump($currentWinOdds); die();
         $oldPlaOdds = explode(", ", $oldContents[$raceNumber]['Pla Odds']);
         $newPlaOdds = explode(", ", $newContents[$raceNumber]['Pla Odds']);
         $currentPlaOdds = explode(", ", $currentContents[$raceNumber]['Pla Odds']);
-        $favoriteOdds = array_merge(
+        $raceFavorites[$raceNumber] = array_merge(
             array_slice($currentWinOdds, 0, 3),
             array_slice($currentPlaOdds, 0, 3),
         );
-        $raceFavorites[$raceNumber] = array_keys($favoriteOdds);
         var_dump($raceFavorites[$raceNumber]); die();
         foreach($runners as $runner => $whatever){
             $oldRunnerPosition = array_search($runner, $oldWinOdds);
