@@ -93,6 +93,17 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     foreach($placePositions as $key => $value){
         $racetext .= "$key($value), ";
     }
+    $racetext .= "',\n";
+    $sumDiffs = [];
+    foreach($runnersPositions as $key => $value){
+        $sumDiffs[$key] = $value + $placePositions[$key];
+    }
+    asort($sumDiffs);
+    $racetext .= "\t\t'sum odds mvnt'  =>  '";
+    foreach($sumDiffs as $key => $value){
+        $racetext .= "$key($value), ";
+    }
+    $racetext .= "',\n";
     $racetext .= "\t],\n";
     $outtext .= $racetext;
 }
