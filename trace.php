@@ -97,7 +97,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     asort($runnersPositions);
     $racetext .= "\t\t'win odds mvnt'  =>  '";
     foreach($runnersPositions as $key => $value){
-        $racetext .= "$key($value), ";
+        $racetext .= "$key, ";
         if($value < 0) $negativeRunners[] = $key;
     }
     $racetext .= "',\n";
@@ -107,7 +107,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     asort($placePositions);
     $racetext .= "\t\t'pla odds mvnt'  =>  '";
     foreach($placePositions as $key => $value){
-        $racetext .= "$key($value), ";
+        $racetext .= "$key, ";
         if($value < 0) $negativePlacers[] = $key;
     }
     $racetext .= "',\n";
