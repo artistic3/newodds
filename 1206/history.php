@@ -7,8 +7,8 @@ return [
 		*/
 		'win odds mvnt'  =>  '8, 10, 1, 7, 5, 4, 11, 2, 6, 3, 9, 12, ',
 		'pla odds mvnt'  =>  '1, 5, 6, 10, 3, 7, 2, 4, 11, 8, 12, 9, ',
-		'Win suggestions'  =>  '7, 1, 5',
-		'Pla suggestions'  =>  '7, 1, 3, 5',
+		'Win suggestions'  =>  '7, 1',
+		'Pla suggestions'  =>  '3, 5',
 	],
 	'2' => [
 		/**
@@ -17,7 +17,7 @@ return [
 		'win odds mvnt'  =>  '10, 5, 1, 2, 3, 7, 12, 9, 8, 11, 6, 4, ',
 		'pla odds mvnt'  =>  '10, 7, 5, 8, 11, 2, 3, 1, 6, 9, 12, 4, ',
 		'Win suggestions'  =>  '3, 10',
-		'Pla suggestions'  =>  '10, 8, 7',
+		'Pla suggestions'  =>  '10, 7',
 	],
 	'3' => [
 		/**
@@ -80,6 +80,6 @@ return [
 		'win odds mvnt'  =>  '1, 5, 2, 8, 10, 6, 7, 4, 9, 12, 11, 3, ',
 		'pla odds mvnt'  =>  '1, 2, 4, 10, 5, 7, 6, 8, 12, 9, 3, 11, ',
 		'Win suggestions'  =>  '5',
-		'Pla suggestions'  =>  '7, 5',
+		'Pla suggestions'  =>  '5, 7',
 	],
 ];
