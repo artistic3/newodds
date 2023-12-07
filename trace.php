@@ -63,11 +63,11 @@ for($count = count($history); $count > 1; $count --){
         $oldPlaOdds = explode(", ", $oldContents[$raceNumber]['Pla Odds']);
         $newPlaOdds = explode(", ", $newContents[$raceNumber]['Pla Odds']);
         $currentPlaOdds = explode(", ", $currentContents[$raceNumber]['Pla Odds']);
-        $raceFavorites[$raceNumber] = array_merge(
+        $raceFavorites[$raceNumber] = array_unique(array_values(array_merge(
             array_slice($currentWinOdds, 0, 3),
             array_slice($currentPlaOdds, 0, 3),
-        );
-        var_dump($raceFavorites[$raceNumber]); die();
+        )));
+        
         foreach($runners as $runner => $whatever){
             $oldRunnerPosition = array_search($runner, $oldWinOdds);
             $oldPlacePosition = array_search($runner, $oldPlaOdds);
@@ -93,30 +93,29 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     $racetext .= "\t\t*/\n";
 
     $runnersPositions = $winPositionDifferences[$raceNumber];
+    $negativeRunners = [];
     asort($runnersPositions);
     $racetext .= "\t\t'win odds mvnt'  =>  '";
     foreach($runnersPositions as $key => $value){
         $racetext .= "$key($value), ";
+        if($value < 0) $negativeRunners[] = $key;
     }
     $racetext .= "',\n";
+    $winSuggestions = array_intersect($raceFavorites[$raceNumber], $negativeRunners);
+    $racetext .= "\t\t'Win suggestions'  =>  '" . implode(", ", $winSuggestions).  "',\n";
 
     $placePositions = $plaPositionDifferences[$raceNumber];
+    $negativePlacers = [];
     asort($placePositions);
     $racetext .= "\t\t'pla odds mvnt'  =>  '";
     foreach($placePositions as $key => $value){
         $racetext .= "$key($value), ";
+        if($value < 0) $negativePlacers[] = $key;
     }
     $racetext .= "',\n";
-    $sumDiffs = [];
-    foreach($runnersPositions as $key => $value){
-        $sumDiffs[$key] = $value + $placePositions[$key];
-    }
-    asort($sumDiffs);
-    $racetext .= "\t\t'sum odds mvnt'  =>  '";
-    foreach($sumDiffs as $key => $value){
-        $racetext .= "$key($value), ";
-    }
-    $racetext .= "',\n";
+    $plaSuggestions = array_intersect($raceFavorites[$raceNumber], $negativePlacers);
+    $racetext .= "\t\t'Pla suggestions'  =>  '" . implode(", ", $plaSuggestions).  "',\n";
+    
     $racetext .= "\t],\n";
     $outtext .= $racetext;
 }
