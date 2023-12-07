@@ -13,9 +13,11 @@ if(file_exists($plaOddsFile)){
 }
 $winPositionDifferences = [];
 $plaPositionDifferences = [];
+$raceFavorites = [];
 foreach($allWinOdds as $raceNumber => $runners){
     $winPositionDifferences[$raceNumber] = [];
     $plaPositionDifferences[$raceNumber] = [];
+    $raceFavorites[$raceNumber] = [];
     foreach($runners as $runner => $omg){
         $winPositionDifferences[$raceNumber][$runner] = 0;
         $plaPositionDifferences[$raceNumber][$runner] = 0;
@@ -48,13 +50,25 @@ for($count = count($history); $count > 1; $count --){
     $newContents = include("tmp2.php");
     exec("rm tmp2.php");
     exec("git checkout main");
+    exec("cp $currentDir/1.php tmp3.php",$command_output,$result_code);
+    if($result_code!== 0) continue;
+    $currentContents = include("tmp3.php");
+    exec("rm tmp2.php");
     foreach($allWinOdds as $raceNumber => $runners){
         if(!isset($oldContents[$raceNumber]['Win Odds']) 
         || !isset($newContents[$raceNumber]['Win Odds'])) continue;
         $oldWinOdds = explode(", ", $oldContents[$raceNumber]['Win Odds']);
         $newWinOdds = explode(", ", $newContents[$raceNumber]['Win Odds']);
+        $currentWinOdds = explode(", ", $currentContents[$raceNumber]['Win Odds']);
         $oldPlaOdds = explode(", ", $oldContents[$raceNumber]['Pla Odds']);
         $newPlaOdds = explode(", ", $newContents[$raceNumber]['Pla Odds']);
+        $currentPlaOdds = explode(", ", $currentContents[$raceNumber]['Pla Odds']);
+        $favoriteOdds = array_merge(
+            array_slice($currentWinOdds, 0, 3),
+            array_slice($currentPlaOdds, 0, 3),
+        );
+        $raceFavorites[$raceNumber] = array_keys($favoriteOdds);
+        var_dump($raceFavorites[$raceNumber]); die();
         foreach($runners as $runner => $whatever){
             $oldRunnerPosition = array_search($runner, $oldWinOdds);
             $oldPlacePosition = array_search($runner, $oldPlaOdds);
