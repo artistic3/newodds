@@ -81,15 +81,11 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
 
     $runnersPositions = $winPositionDifferences[$raceNumber];
     asort($runnersPositions);
-    $avgWinOddsMvt = 0;
     $racetext .= "\t\t'win odds mvnt'  =>  '";
     foreach($runnersPositions as $key => $value){
         $racetext .= "$key($value), ";
-        $avgWinOddsMvt += $value;
     }
-    $avgWinOddsMvt = round($avgWinOddsMvt / count($runnersPositions), 2); 
     $racetext .= "',\n";
-    $racetext .= "'Avg win odds mvnt' => '$avgWinOddsMvt',\n";
 
     $placePositions = $plaPositionDifferences[$raceNumber];
     asort($placePositions);
