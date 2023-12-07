@@ -53,7 +53,7 @@ for($count = count($history); $count > 1; $count --){
     exec("cp $currentDir/1.php tmp3.php",$command_output,$result_code);
     if($result_code!== 0) continue;
     $currentContents = include("tmp3.php");
-    exec("rm tmp2.php");
+    exec("rm tmp3.php");
     foreach($allWinOdds as $raceNumber => $runners){
         if(!isset($oldContents[$raceNumber]['Win Odds']) 
         || !isset($newContents[$raceNumber]['Win Odds'])) continue;
