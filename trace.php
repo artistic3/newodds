@@ -60,6 +60,7 @@ for($count = count($history); $count > 1; $count --){
         $oldWinOdds = explode(", ", $oldContents[$raceNumber]['Win Odds']);
         $newWinOdds = explode(", ", $newContents[$raceNumber]['Win Odds']);
         $currentWinOdds = explode(", ", $currentContents[$raceNumber]['Win Odds']);
+        var_dump($currentWinOdds); die();
         $oldPlaOdds = explode(", ", $oldContents[$raceNumber]['Pla Odds']);
         $newPlaOdds = explode(", ", $newContents[$raceNumber]['Pla Odds']);
         $currentPlaOdds = explode(", ", $currentContents[$raceNumber]['Pla Odds']);
