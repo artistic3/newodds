@@ -87,7 +87,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         $racetext .= "$key($value), ";
         $avgWinOddsMvt += $value;
     }
-    $avgWinOddsMvt = floor($avgWinOddsMvt / count($runnersPositions), 2); 
+    $avgWinOddsMvt = round($avgWinOddsMvt / count($runnersPositions), 2); 
     $racetext .= "',\n";
     $racetext .= "'Avg win odds mvnt' => '$avgWinOddsMvt',\n";
 
