@@ -81,18 +81,18 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
 
     $runnersPositions = $winPositionDifferences[$raceNumber];
     asort($runnersPositions);
-    $runners = array_keys($runnersPositions);
     $racetext .= "\t\t'win odds mvnt'  =>  '";
     foreach($runnersPositions as $key => $value){
         $racetext .= "$key($value), ";
     }
     $racetext .= "',\n";
 
-
     $placePositions = $plaPositionDifferences[$raceNumber];
     asort($placePositions);
-    $placers = array_keys($placePositions);
-    $racetext .= "\t\t'pla odds mvnt'  =>  '" . implode(", ", $placers).  "',\n";
+    $racetext .= "\t\t'pla odds mvnt'  =>  '";
+    foreach($placePositions as $key => $value){
+        $racetext .= "$key($value), ";
+    }
     $racetext .= "\t],\n";
     $outtext .= $racetext;
 }
