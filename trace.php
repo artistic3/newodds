@@ -101,8 +101,6 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         if($value < 0) $negativeRunners[] = $key;
     }
     $racetext .= "',\n";
-    $winSuggestions = array_intersect($raceFavorites[$raceNumber], $negativeRunners);
-    $racetext .= "\t\t'Win suggestions'  =>  '" . implode(", ", $winSuggestions).  "',\n";
 
     $placePositions = $plaPositionDifferences[$raceNumber];
     $negativePlacers = [];
@@ -113,6 +111,8 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         if($value < 0) $negativePlacers[] = $key;
     }
     $racetext .= "',\n";
+    $winSuggestions = array_intersect($raceFavorites[$raceNumber], $negativeRunners);
+    $racetext .= "\t\t'Win suggestions'  =>  '" . implode(", ", $winSuggestions).  "',\n";
     $plaSuggestions = array_intersect($raceFavorites[$raceNumber], $negativePlacers);
     $racetext .= "\t\t'Pla suggestions'  =>  '" . implode(", ", $plaSuggestions).  "',\n";
     
