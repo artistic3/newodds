@@ -32,8 +32,8 @@ foreach($output as $line){
         $history[]   = substr($line, strlen('commit'));
     }
 }
-//limit search to last 50 commits
-$history = array_slice($history, 0, 50);
+//limit search to last 500 commits
+$history = array_slice($history, 0, 500);
 exec("git config --global advice.detachedHead false");
 for($count = count($history); $count > 1; $count --){
     $oldVersion = $history[$count - 1];
@@ -82,7 +82,13 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     $runnersPositions = $winPositionDifferences[$raceNumber];
     asort($runnersPositions);
     $runners = array_keys($runnersPositions);
-    $racetext .= "\t\t'win odds mvnt'  =>  '" . implode(", ", $runners).  "',\n";
+    $racetext .= "\t\t'win odds mvnt'  =>  '";
+    foreach($runnersPositions as $key => $value){
+        $racetext .= "$key($value), ";
+    }
+    $racetext .= "',\n";
+
+
     $placePositions = $plaPositionDifferences[$raceNumber];
     asort($placePositions);
     $placers = array_keys($placePositions);
