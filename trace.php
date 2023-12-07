@@ -13,11 +13,13 @@ if(file_exists($plaOddsFile)){
 }
 $winPositionDifferences = [];
 $plaPositionDifferences = [];
-$raceFavorites = [];
+$raceWinFavorites = [];
+$racePlaFavorites = [];
 foreach($allWinOdds as $raceNumber => $runners){
     $winPositionDifferences[$raceNumber] = [];
     $plaPositionDifferences[$raceNumber] = [];
-    $raceFavorites[$raceNumber] = [];
+    $raceWinFavorites[$raceNumber] = [];
+    $racePlaFavorites[$raceNumber] = [];
     foreach($runners as $runner => $omg){
         $winPositionDifferences[$raceNumber][$runner] = 0;
         $plaPositionDifferences[$raceNumber][$runner] = 0;
@@ -63,11 +65,8 @@ for($count = count($history); $count > 1; $count --){
         $oldPlaOdds = explode(", ", $oldContents[$raceNumber]['Pla Odds']);
         $newPlaOdds = explode(", ", $newContents[$raceNumber]['Pla Odds']);
         $currentPlaOdds = explode(", ", $currentContents[$raceNumber]['Pla Odds']);
-        $raceFavorites[$raceNumber] = array_unique(array_values(array_merge(
-            array_slice($currentWinOdds, 0, 3),
-            array_slice($currentPlaOdds, 0, 3),
-        )));
-        
+        $raceWinFavorites[$raceNumber] = array_slice($currentWinOdds, 0, 3);
+        $racePlaFavorites[$raceNumber] = array_slice($currentPlaOdds, 0, 3);
         foreach($runners as $runner => $whatever){
             $oldRunnerPosition = array_search($runner, $oldWinOdds);
             $oldPlacePosition = array_search($runner, $oldPlaOdds);
@@ -111,9 +110,9 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         if($value < 0) $negativePlacers[] = $key;
     }
     $racetext .= "',\n";
-    $winSuggestions = array_intersect($raceFavorites[$raceNumber], $negativeRunners);
+    $winSuggestions = array_intersect($raceWinFavorites[$raceNumber], $negativeRunners);
     $racetext .= "\t\t'Win suggestions'  =>  '" . implode(", ", $winSuggestions).  "',\n";
-    $plaSuggestions = array_intersect($raceFavorites[$raceNumber], $negativePlacers);
+    $plaSuggestions = array_intersect($racePlaFavorites[$raceNumber], $negativePlacers);
     $racetext .= "\t\t'Pla suggestions'  =>  '" . implode(", ", $plaSuggestions).  "',\n";
     
     $racetext .= "\t],\n";
