@@ -111,13 +111,9 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     }
     $racetext .= "',\n";
     $winSuggestions = array_intersect($raceWinFavorites[$raceNumber], $negativeRunners);
-    $winSuggestions2 = array_intersect($raceWinFavorites[$raceNumber], $negativePlacers);
     $racetext .= "\t\t'Win suggestions'  =>  '" . implode(", ", $winSuggestions).  "',\n";
-    $racetext .= "\t\t'Win suggestions 2'  =>  '" . implode(", ", $winSuggestions2).  "',\n";
     $plaSuggestions = array_intersect($racePlaFavorites[$raceNumber], $negativePlacers);
-    $plaSuggestions2 = array_intersect($racePlaFavorites[$raceNumber], $negativeRunners);
     $racetext .= "\t\t'Pla suggestions'  =>  '" . implode(", ", $plaSuggestions).  "',\n";
-    $racetext .= "\t\t'Pla suggestions 2'  =>  '" . implode(", ", $plaSuggestions2).  "',\n";
     
     $racetext .= "\t],\n";
     $outtext .= $racetext;
