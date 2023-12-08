@@ -15,11 +15,13 @@ $winPositionDifferences = [];
 $plaPositionDifferences = [];
 $raceWinFavorites = [];
 $racePlaFavorites = [];
+$raceFavorites = [];
 foreach($allWinOdds as $raceNumber => $runners){
     $winPositionDifferences[$raceNumber] = [];
     $plaPositionDifferences[$raceNumber] = [];
     $raceWinFavorites[$raceNumber] = [];
     $racePlaFavorites[$raceNumber] = [];
+    $raceFavorites[$raceNumber] = [];
     foreach($runners as $runner => $omg){
         $winPositionDifferences[$raceNumber][$runner] = 0;
         $plaPositionDifferences[$raceNumber][$runner] = 0;
@@ -67,6 +69,10 @@ for($count = count($history); $count > 1; $count --){
         $currentPlaOdds = explode(", ", $currentContents[$raceNumber]['Pla Odds']);
         $raceWinFavorites[$raceNumber] = array_slice($currentWinOdds, 0, 3);
         $racePlaFavorites[$raceNumber] = array_slice($currentPlaOdds, 0, 3);
+        $raceFavorites[$raceNumber] = array_unique(array_values(array_merge(
+            array_slice($currentWinOdds, 0, 3),
+            array_slice($currentPlaOdds, 0, 3),
+        )));
         foreach($runners as $runner => $whatever){
             $oldRunnerPosition = array_search($runner, $oldWinOdds);
             $oldPlacePosition = array_search($runner, $oldPlaOdds);
@@ -111,9 +117,13 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     }
     $racetext .= "',\n";
     $winSuggestions = array_intersect($raceWinFavorites[$raceNumber], $negativeRunners);
+    $winSuggestions2 = array_intersect($raceFavorites[$raceNumber], $negativeRunners);
     $racetext .= "\t\t'Win suggestions'  =>  '" . implode(", ", $winSuggestions).  "',\n";
+    $racetext .= "\t\t'Win suggestions 2'  =>  '" . implode(", ", $winSuggestions2).  "',\n";
     $plaSuggestions = array_intersect($racePlaFavorites[$raceNumber], $negativePlacers);
+    $plaSuggestions2 = array_intersect($raceFavorites[$raceNumber], $negativePlacers);
     $racetext .= "\t\t'Pla suggestions'  =>  '" . implode(", ", $plaSuggestions).  "',\n";
+    $racetext .= "\t\t'Pla suggestions 2'  =>  '" . implode(", ", $plaSuggestions2).  "',\n";
     
     $racetext .= "\t],\n";
     $outtext .= $racetext;
