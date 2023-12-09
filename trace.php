@@ -131,9 +131,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         if(abs($value) > 1) $set1[] = $key;
         else $set2[] = $key;
     }
-    if(!is_array($set1)){var_dump($set1); die();}
-    if(!is_array($set2)){var_dump($set2); die();}
-    if(count($set1) >= $count($set2)) $toWin = $set1;
+    if(count($set1) >= count($set2)) $toWin = $set1;
     else $toWin = $set2;
     $racetext2 .= "\t\t'win'  =>  '" . implode(", ", $toWin).  "',\n";
     $racetext .= "',\n";
