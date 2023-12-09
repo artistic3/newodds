@@ -26,7 +26,9 @@ foreach($allWinOdds as $raceNumber => $runners){
     }
 }
 $outFile = $currentDir . DIRECTORY_SEPARATOR . "$step.php";
-//Get win odds (getodds.php) and place odds(placeodds.php) fromthe previous git commit
+$outFile2 = $currentDir . DIRECTORY_SEPARATOR . "win.php";
+
+//Get win odds (getodds.php) and place odds(placeodds.php) from the previous git commit
 $output = array();
 $history = array();
 chdir($currentDir);
@@ -81,6 +83,7 @@ for($count = count($history); $count > 1; $count --){
 }
 $outtext = "<?php\n\n";
 $outtext .= "return [\n";
+$outtext2 = $outtext;
 $totalRaces= count($allWinOdds);
 for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     if(!isset($allWinOdds[$raceNumber])) continue;
@@ -90,6 +93,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     $racetext .= "\t\t/**\n";
     $racetext .= "\t\tRace $raceNumber\n";
     $racetext .= "\t\t*/\n";
+    $racetext2 = $racetext;
 
     $runnersPositions = $winPositionDifferences[$raceNumber];
     $negativeRunners = [];
@@ -127,14 +131,21 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         if(abs($value) > 1) $set1[] = $key;
         else $set2[] = $key;
     }
+    if(count($set1) >= $count($set2)) $toWin = $set1;
+    else $toWin = $set2;
+    $racetext2 .= "\t\t'win'  =>  '" . implode(", ", $toWin).  "',\n";
     $racetext .= "',\n";
     $racetext .= "\t\t'Selections'  =>  '" . implode(", ", $selections).  "',\n";
     $racetext .= "\t\t'Set 1'  =>  '" . implode(", ", $set1).  "',\n";
     $racetext .= "\t\t'Set 2'  =>  '" . implode(", ", $set2).  "',\n";
     $racetext .= "\t],\n";
+    $racetext2 .= "\t],\n";
     $outtext .= $racetext;
+    $outtext2 .= $racetext2;
 }
 
 $outtext .= "];\n";
+$outtext2 .= "];\n";
 
 file_put_contents($outFile, $outtext);
+file_put_contents($outFile2, $outtext2);
