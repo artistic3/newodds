@@ -133,6 +133,13 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     }
     if(count($set1) >= count($set2)) $toWin = $set1;
     else $toWin = $set2;
+    //sort $toWin by win odds
+    $qplsOdds = [];
+    foreach($toWin as $iIndex){
+        if(isset($allWinOdds[$raceNumber][$iIndex])) $qplsOdds[$iIndex] = $allWinOdds[$raceNumber][$iIndex];
+    }
+    asort($qplsOdds);
+    $toWin = array_keys($qplsOdds);
     $racetext2 .= "\t\t'win'  =>  '" . implode(", ", $toWin).  "',\n";
     $racetext .= "',\n";
     $racetext .= "\t\t'Selections'  =>  '" . implode(", ", $selections).  "',\n";
