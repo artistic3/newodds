@@ -129,8 +129,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         if(abs($value) > 1) $set1[] = $key;
         else $set2[] = $key;
     }
-    if(count($set1) >= count($set2)) $toWin = $set1;
-    else $toWin = $set2;
+    $toWin = $set2;
     //sort $toWin by win odds
     $qplsOdds = [];
     foreach($toWin as $iIndex){
