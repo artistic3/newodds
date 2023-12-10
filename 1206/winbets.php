@@ -53,7 +53,7 @@ return [
 		/**
 		Race 3
 		*/
-		'favorite set'  =>  'Set 2',
+		'favorite set'  =>  'Set 1',
 		'Set 1 Win Bets'  =>  [
 			'8' => '50 HKD',
 			'7' => '50 HKD',
